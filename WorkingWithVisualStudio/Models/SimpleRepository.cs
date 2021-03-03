@@ -8,8 +8,7 @@ namespace WorkingWithVisualStudio.Models
     public class SimpleRepository
     {
         private static SimpleRepository sharedRepository = new SimpleRepository();
-        private Dictionary<string, Product> products
-        = new Dictionary<string, Product>();
+        private Dictionary<string, Product> products = new Dictionary<string, Product>();
         public static SimpleRepository SharedRepository => sharedRepository;
         public SimpleRepository()
         {
@@ -23,6 +22,7 @@ namespace WorkingWithVisualStudio.Models
             {
                 AddProduct(p);
             }
+            products.Add("Error", null);
         }
         public IEnumerable<Product> Products => products.Values;
         public void AddProduct(Product p) => products.Add(p.Name, p);
